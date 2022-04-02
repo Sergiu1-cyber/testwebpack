@@ -27,4 +27,14 @@ export class RenderList {
       list.innerHTML = html
   }
   
+  renderList() {
+    const ls = new LocalStorage(this.question)
+    const data = ls.getQuestionsFromLocalStorage()
+    const html = data.length
+      ? data.map(this.toCard).join('')
+      : `<div class="w3-panel w3-pale-green">Lipsesc date</div>`
+      
+      list.innerHTML = html
+  }
+  
 }

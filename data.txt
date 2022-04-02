@@ -1,0 +1,7 @@
+
+AIzaSyBFOCHDJWP7vLZtw5N02xThJB4vXtgf3-A
+
+https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
+
+
+

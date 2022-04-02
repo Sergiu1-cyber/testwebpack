@@ -1,6 +1,6 @@
 
 import {LocalStorage} from "./localstorage"
-
+import {authEmailPassword} from "./autorization"
 
 export class Question {
   static create(question) {
@@ -22,3 +22,4 @@ export class Question {
     .then(localSave.addLocalStorage())
   }
 }
+
