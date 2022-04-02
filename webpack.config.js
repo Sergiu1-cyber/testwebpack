@@ -17,7 +17,7 @@ const config = {
   output: {
     clean: true,
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.[chunkhash].js",
+    filename: "js/[name].[contenthash].js",
     assetModuleFilename: 'static/[hash][ext][query]',
     publicPath: 'auto',
   },
@@ -86,7 +86,9 @@ module.exports = () => {
   if (isProduction) {
     config.mode = "production";
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(new MiniCssExtractPlugin({
+        filename: "css/[name].[contenthash].css"
+        }));
     
     config.optimization.minimizer.push(
       new CssMinimizerPlugin(),
