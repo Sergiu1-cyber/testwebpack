@@ -19,7 +19,7 @@ const config = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].[contenthash].js",
     assetModuleFilename: 'static/[hash][ext][query]',
-    publicPath: 'auto',
+    // publicPath: 'auto',
   },
   devServer: {
     open: true,

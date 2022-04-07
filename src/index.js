@@ -1,5 +1,5 @@
-import 'normalize.css'
-import "./styles/w3.css"
+import "w3-css"
+// import "./styles/w3.css"
 import "../index.html"
 import {form, input, button, renove} from "./modules/constante"
 import {creez_obiectul, validateButton} from "./modules/utils"
@@ -16,6 +16,7 @@ const log = (x) => document.getElementById('log').innerHTML = `${x}`
 
 
 // creez ascultatori de evenimente
+window.addEventListener('load', getData)
 form.addEventListener('submit', submitFormHandler)
 input.addEventListener('input', stareaButonului)
 renove.addEventListener('click', getData)
@@ -33,13 +34,18 @@ function submitFormHandler(event) {
   Question.create(question)
     .then( () => {
       valid.submitValidator()
-      log(JSON.stringify(question))
+//      log(JSON.stringify(question))
+      getData()
     })
-  //renderlist.render()
 }
 
 function getData() {
 	authEmailPassword()
+	  .then( Question.citesc )
+	  .then( data => {
+	    const renderlist = new RenderList(data)
+	    renderlist.render()
+	  } )
 	}
 
 
