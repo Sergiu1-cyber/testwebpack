@@ -40,5 +40,14 @@ export class Question {
       })
   }
   
+  static sterg (id) {
+//    alert(id)
+    return fetch(`https://proiect-2-5c02a-default-rtdb.europe-west1.firebasedatabase.app/question/${id}.json`,{
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(res => alert("element sters"))
+  }
+  
 }
 

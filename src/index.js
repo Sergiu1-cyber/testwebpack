@@ -8,18 +8,20 @@ import {Validator} from "./modules/validator"
 import {RenderList} from "./modules/renderlist"
 import {authEmailPassword} from "./modules/autorization"
 
+
+
 //import {email, password, apiKey} from './modules/constante'
 
 const valid = new Validator(input, button)
 
-const log = (x) => document.getElementById('log').innerHTML = `${x}`
-
+// const log = (x) => document.getElementById('log').innerHTML = `${x}`
 
 // creez ascultatori de evenimente
 window.addEventListener('load', getData)
 form.addEventListener('submit', submitFormHandler)
 input.addEventListener('input', stareaButonului)
 renove.addEventListener('click', getData)
+
 
 // stareaButonului
 function stareaButonului() {
@@ -39,7 +41,7 @@ function submitFormHandler(event) {
     })
 }
 
-function getData() {
+export function getData() {
 	authEmailPassword()
 	  .then( Question.citesc )
 	  .then( data => {

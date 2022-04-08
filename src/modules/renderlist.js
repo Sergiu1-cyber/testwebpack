@@ -1,10 +1,18 @@
 import {LocalStorage} from "./localstorage"
 import {list} from "./constante"
+import {Question} from "./questions"
+import {getData} from "../index"
 
 export class RenderList {
   
   constructor (question) {
     this.question = question
+  }
+  
+  click(e) {
+    Question.sterg(e.target.value)
+    getData()
+//    alert(e.target.value)
   }
   
   toCard(d) {
@@ -14,7 +22,10 @@ export class RenderList {
       <p>${new Date(d.date).toLocaleDateString()}</p>
       <p>${new Date(d.date).toLocaleTimeString()}</p>
       <p>${d.text}</p>
-      <button class="w3-btn w3-red">clear</button>
+      <button 
+        class="w3-btn w3-red"
+        value="${d.id}"
+        >clear</button>
     </div>
     `
   }
@@ -26,6 +37,9 @@ export class RenderList {
       : `<div class="w3-panel w3-pale-green">Lipsesc date</div>`
       
       list.innerHTML = html
+      
+      const btn = list.querySelectorAll('button')
+      btn.forEach( b => b.addEventListener('click', this.click))
   }
   
   renderList() {
