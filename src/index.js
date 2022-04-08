@@ -1,7 +1,7 @@
 import "w3-css"
 // import "./styles/w3.css"
 import "../index.html"
-import {form, input, button, renove} from "./modules/constante"
+import {form, input, button /*renove*/, p} from "./modules/constante"
 import {creez_obiectul, validateButton} from "./modules/utils"
 import {Question} from "./modules/questions"
 import {Validator} from "./modules/validator"
@@ -20,7 +20,9 @@ const valid = new Validator(input, button)
 window.addEventListener('load', getData)
 form.addEventListener('submit', submitFormHandler)
 input.addEventListener('input', stareaButonului)
-renove.addEventListener('click', getData)
+input.addEventListener('input', binding)
+
+//renove.addEventListener('click', getData)
 
 
 // stareaButonului
@@ -49,5 +51,9 @@ export function getData() {
 	    renderlist.render()
 	  } )
 	}
+
+function binding (e) {
+  p.innerHTML = e.target.value
+}
 
 
